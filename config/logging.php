@@ -40,6 +40,18 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'up' => [
+            'mir_gehts' => 'gut',
+            'driver' => 'custom',
+            'via' => App\Logging\UpLogger::class,
+        ],
+
+        'immer_ueberall' => [
+            'driver' => 'stack',
+            'channels' => ['up', 'daily', 'single', 'slack'],
+            'ignore_exceptions' => false,
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
@@ -58,7 +70,7 @@ return [
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
-            'level' => 'debug',
+            'level' => 'warning',
         ],
 
         'papertrail' => [

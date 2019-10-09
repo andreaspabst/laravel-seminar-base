@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::post('/sentry-bug', function () {
+    throw new Exception;
+});
+
 Route::apiResource('countries', 'CountryController');
 Route::apiResource('cities', 'CityController');
 Route::apiResource('houses', 'HouseController');
