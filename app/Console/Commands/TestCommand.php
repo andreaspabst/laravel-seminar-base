@@ -7,6 +7,7 @@ use App\Country;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use App\Exceptions\TooLessMoneyForBuyingAHouseException;
 
 class TestCommand extends Command
 {
@@ -41,6 +42,8 @@ class TestCommand extends Command
      */
     public function handle()
     {
+        throw new TooLessMoneyForBuyingAHouseException();
+        exit;
         $a = "einen text";
         $aCrypt = "eyJpdiI6IjlsMlRNM2hkbjR5OEdCdTFBNHRnRGc9PSIsInZhbHVlIjoiSHNVaFVpY0UrakczYytFcEo0NndqR1RNdnpYSlAyR3NrUUtoWGlDTGE1ND0iLCJtYWMiOiIwYzMyMTY1NTMxMTE4ZDcwNzRkMDhjYzUwZDNmNGRiNDQyMThmY2MzZmZjMzZhYmE0NDU5ODk5NmFhYTg5ODhiIn0=";
 
